@@ -1,0 +1,55 @@
+body {
+    /* Background */
+    background: linear-gradient(rgb(39, 223, 113), rgb(19, 141, 64));
+    background-repeat: no-repeat;
+    background-size: 100% 12%;
+    /* Police de texte */
+    font-family: 'Cabin', Helvetica, Arial, sans-serif;
+    padding: 10px 100px 100px 100px;
+    /*Largueur de la page */
+    margin: auto;
+}
+
+h2 {
+    text-align: left;
+    padding-top: 150px;
+    padding-left: 20px;
+    font-size: 30px
+}
+
+h1 {
+    /* TITRE DU SITE WEB */
+    font-family: 'Lobster', Georgia, Times, serif;
+    font-size: 80px;
+    font-weight: bold;
+    line-height: 10%;
+    color: rgb(255, 255, 255);
+    float: left;
+}
+
+.Menu_id {
+    /* Menu identifiants */
+    text-align: left;
+    margin-top: 3%;
+    float: right;
+}
+
+input {
+    /* Bordure des zones à remplir */
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+h6 {
+    /* Informations relatives aux lois du site */
+    font-size: 10px;
+    padding-top: 1000px;
+    padding-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 50%;
+}
+
+.Moments {
+    padding-top:20%;
+}
