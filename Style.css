@@ -2,7 +2,7 @@ body {
     /* Background */
     background: linear-gradient(rgb(39, 223, 113), rgb(19, 141, 64));
     background-repeat: no-repeat;
-    background-size: 100% 12%;
+    background-size: 100% 165px;
     /* Police de texte */
     font-family: 'Cabin', Helvetica, Arial, sans-serif;
     padding: 10px 100px 100px 100px;
@@ -39,10 +39,9 @@ input {
     border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-h6 {
+.Down {
     /* Informations relatives aux lois du site */
     font-size: 10px;
-    padding-top: 1000px;
     padding-bottom: auto;
     margin-left: auto;
     margin-right: auto;
@@ -51,5 +50,4 @@ h6 {
 }
 
 .Moments {
-    padding-top:20%;
 }
