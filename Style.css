@@ -39,15 +39,34 @@ input {
     border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-.Down {
+
+.Moments {
+    border: solid 1px rgb(40, 33, 145); 
+    padding: 5px; 
+    border-radius: 5px;
+    margin-left: 10%;
+    float: left;
+    width: 35%;
+    height: 500px;
+}
+
+.Pubs{
+    border: solid 1px rgb(40, 33, 145); 
+    padding: 5px; 
+    border-radius: 5px;
+    margin-right: 10%;
+    float: right;
+    width: 35%;
+    height: 500px;
+}
+
+footer {
     /* Informations relatives aux lois du site */
+    font-family: 'Cabin', Helvetica, Arial, sans-serif;
     font-size: 10px;
-    padding-bottom: auto;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     width: 50%;
-}
-
-.Moments {
+    margin-top: 700px /* A CHANGER */
 }
