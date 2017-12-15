@@ -6,11 +6,10 @@ body {
     /* Police de texte */
     font-family: 'Cabin', Helvetica, Arial, sans-serif;
     padding: 10px 100px 100px 100px;
-    /*Largueur de la page */
-    margin: auto;
 }
 
 h2 {
+    /* Slogan */
     text-align: left;
     padding-top: 150px;
     padding-left: 20px;
@@ -39,25 +38,45 @@ input {
     border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-
 .Moments {
-    border: solid 1px rgb(40, 33, 145); 
-    padding: 5px; 
+    border: solid 3px rgb(39, 223, 113);
+    padding: 5px;
     border-radius: 5px;
-    margin-left: 10%;
+    margin-left: 5%;
     float: left;
     width: 35%;
     height: 500px;
 }
 
-.Pubs{
-    border: solid 1px rgb(40, 33, 145); 
-    padding: 5px; 
+.Inscription {
+    padding: 5px 5px 5px 5px;
     border-radius: 5px;
-    margin-right: 10%;
     float: right;
-    width: 35%;
+    width: 50%;
     height: 500px;
+    text-align: center;
+}
+
+.Formulaire table {
+    margin: auto;
+    border-spacing: 50px;
+}
+
+.Formulaire input {
+    font-size: 15px;
+    border: none;
+    border-bottom: 2px solid rgb(39, 223, 113);
+    padding: 8px 8px;
+    width: 100%;
+    text-align: left;
+}
+
+.Formulaire .Date{
+    width: 20px;
+}
+
+.Formulaire .Gender {
+    margin-left: 5px;
 }
 
 footer {
@@ -68,5 +87,5 @@ footer {
     margin-right: auto;
     text-align: center;
     width: 50%;
-    margin-top: 700px /* A CHANGER */
+    margin-top: 700px/* A CHANGER */
 }
