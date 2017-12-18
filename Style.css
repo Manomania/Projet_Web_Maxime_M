@@ -39,7 +39,7 @@ input {
 }
 
 .Moments {
-    border: solid 3px rgb(39, 223, 113);
+    border: solid 3px rgb(9, 141, 62);
     padding: 5px;
     border-radius: 5px;
     margin-left: 5%;
@@ -65,7 +65,7 @@ input {
 .Formulaire input {
     font-size: 15px;
     border: none;
-    border-bottom: 2px solid rgb(39, 223, 113);
+    border-bottom: 2px solid rgb(9, 141, 62);
     padding: 8px 8px;
     width: 100%;
     text-align: left;
@@ -79,13 +79,19 @@ input {
     margin-left: 5px;
 }
 
-footer {
+#footer {
     /* Informations relatives aux lois du site */
     font-family: 'Cabin', Helvetica, Arial, sans-serif;
-    font-size: 10px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 15px;
+    clear: both;
+    margin: auto;
     text-align: center;
     width: 50%;
-    margin-top: 700px/* A CHANGER */
+    position: relative;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-left:0;
+    padding-right:0;
+    height: 100px;
+    background: linear-gradient(rgb(19, 141, 64), rgb(39, 223, 113));
 }
