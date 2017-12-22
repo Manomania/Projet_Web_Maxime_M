@@ -5,15 +5,7 @@ body {
     background-size: 100% 165px;
     /* Police de texte */
     font-family: 'Cabin', Helvetica, Arial, sans-serif;
-    padding: 10px 100px 100px 100px;
-}
-
-h2 {
-    /* Slogan */
-    text-align: left;
-    padding-top: 150px;
-    padding-left: 20px;
-    font-size: 30px
+    margin: 0px;
 }
 
 h1 {
@@ -24,13 +16,24 @@ h1 {
     line-height: 10%;
     color: rgb(255, 255, 255);
     float: left;
+    padding-left: 100px;
+    margin-top: 3%;
 }
 
 .Menu_id {
     /* Menu identifiants */
     text-align: left;
-    margin-top: 3%;
+    margin-top: 2%;
     float: right;
+    padding-right: 100px;
+}
+
+h2 {
+    /* Slogan */
+    text-align: left;
+    padding-top: 150px;
+    padding-left: 20px;
+    font-size: 30px
 }
 
 input {
@@ -46,6 +49,7 @@ input {
     float: left;
     width: 35%;
     height: 500px;
+    margin-bottom: 70px;
 }
 
 .Inscription {
@@ -71,7 +75,7 @@ input {
     text-align: left;
 }
 
-.Formulaire .Date{
+.Formulaire .Date {
     width: 20px;
 }
 
@@ -84,14 +88,16 @@ input {
     font-family: 'Cabin', Helvetica, Arial, sans-serif;
     font-size: 15px;
     clear: both;
-    margin: auto;
-    text-align: center;
-    width: 50%;
+    width: 100%;
     position: relative;
-    padding-bottom: 20px;
-    padding-top: 10px;
-    padding-left:0;
-    padding-right:0;
     height: 100px;
     background: linear-gradient(rgb(19, 141, 64), rgb(39, 223, 113));
+}
+
+h6 {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
