@@ -27,6 +27,14 @@ h1 {
     float: right;
     padding-right: 100px;
 }
+.Menu_connect {
+    /* Menu connection */
+    text-align: right;
+    margin-top: 2%;
+    float: right;
+    padding-right: 100px;
+
+}
 
 h2 {
     /* Slogan */
@@ -39,9 +47,12 @@ h2 {
 input {
     /* Bordure des zones à remplir */
     border: 1px solid rgba(0, 0, 0, 0.5);
+    font-family: 'Cabin', Helvetica, Arial, sans-serif;
+    font-size: 15px;
 }
 
 .Moments {
+    /* A modifier */
     border: solid 3px rgb(9, 141, 62);
     padding: 5px;
     border-radius: 5px;
@@ -53,6 +64,7 @@ input {
 }
 
 .Inscription {
+    /* Inscription accessible */
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     float: right;
@@ -61,30 +73,52 @@ input {
     text-align: center;
 }
 
+.Inscription header {
+    background-color: rgb(9, 141, 62);
+    background-repeat: no-repeat;
+    background-size: 80% 165px;
+    margin: auto;
+    width: 49%;
+}
+
 .Formulaire table {
+    /* Mise en page du tableau */
     margin: auto;
     border-spacing: 50px;
 }
 
 .Formulaire input {
+    /* Mise en page du tableau */
     font-size: 15px;
     border: none;
     border-bottom: 2px solid rgb(9, 141, 62);
-    padding: 8px 8px;
     width: 100%;
     text-align: left;
+    margin: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
-.Formulaire .Date {
-    width: 20px;
+.Formulaire .FormulaireSuite  {
+    /* Mise en page du tableau */
+    padding-left: 20%;
+}
+.FormulaireSuite button {
+    font-family: 'Lobster', Georgia, Times, serif;
+    font-size: 40px;
+    padding: 0px 40px;
+    border: 2px solid rgb(39, 223, 113);
+    background-color: rgb(39, 223, 113);
+    margin-top: 20px;
 }
 
-.Formulaire .Gender {
-    margin-left: 5px;
+.FormulaireSuite button:hover {
+    background-color: rgb(19, 141, 64);
+    color: black;
 }
 
 #footer {
-    /* Informations relatives aux lois du site */
+    /* Mise en page du footer */
     font-family: 'Cabin', Helvetica, Arial, sans-serif;
     font-size: 15px;
     clear: both;
@@ -95,6 +129,7 @@ input {
 }
 
 h6 {
+    /* Mise en page du footer */
     width: 100%;
     text-align: center;
     margin: auto;
