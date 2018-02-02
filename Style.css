@@ -64,7 +64,7 @@ input {
 }
 
 .Inscription {
-    /* Inscription accessible */
+    /* Mise en page du cadre (inscription) */
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     float: right;
@@ -74,6 +74,7 @@ input {
 }
 
 .Inscription header {
+    /* Mise en page du tableau (Titre inscription) */
     background-color: rgb(9, 141, 62);
     background-repeat: no-repeat;
     background-size: 80% 165px;
@@ -82,13 +83,13 @@ input {
 }
 
 .Formulaire table {
-    /* Mise en page du tableau */
+    /* Mise en page du tableau (inscription) */
     margin: auto;
     border-spacing: 50px;
 }
 
 .Formulaire input {
-    /* Mise en page du tableau */
+    /* Mise en page du tableau (inscription) */
     font-size: 15px;
     border: none;
     border-bottom: 2px solid rgb(9, 141, 62);
@@ -99,9 +100,9 @@ input {
     padding-bottom: 8px;
 }
 
-.Formulaire .FormulaireSuite  {
-    /* Mise en page du tableau */
-    padding-left: 20%;
+.FormulaireSuite table {
+    /* Mise en page du tableau (Bouton + sexe + age)*/
+    margin: auto;
 }
 .FormulaireSuite button {
     font-family: 'Lobster', Georgia, Times, serif;
@@ -113,12 +114,13 @@ input {
 }
 
 .FormulaireSuite button:hover {
+    /* Mise en page du bouton inscription */
     background-color: rgb(19, 141, 64);
     color: black;
 }
 
 #footer {
-    /* Mise en page du footer */
+    /* Mise en page du cadre footer */
     font-family: 'Cabin', Helvetica, Arial, sans-serif;
     font-size: 15px;
     clear: both;
@@ -129,7 +131,7 @@ input {
 }
 
 h6 {
-    /* Mise en page du footer */
+    /* Mise en page du texte (footer) */
     width: 100%;
     text-align: center;
     margin: auto;
