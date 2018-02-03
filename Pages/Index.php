@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="style.css" />
-    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" href="Images/Favicon.ico" />
-    <title>Klipay - Accueil</title>
-</head>
+<?php
+require_once "Modules/Header.php"; 
+?>
 
 <body>
     <h1>Klipay</h1>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
     <!-- FORMULAIRE CONNEXION -->
     <div class="Menu_id">
@@ -45,7 +44,7 @@
 
     <!-- FORUM OU AUTRE (A modifier) -->
     <div class="Moments">
-    <!-- AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
+        <!-- Tous les forums seront en prévisualisation ici -->
     </div>
 
     <!-- Inscription -->
@@ -106,15 +105,6 @@
         </form>
     </div>
 
-    <!-- PIED DE PAGE + REGLEMENT -->
-    <div id="footer">
-        <h6>En cliquant sur
-            <a href="URL">Créer un compte</a>, vous acceptez nos
-            <a href="URL">Conditions</a> et indiquez que vous avez lu notre
-            <a href="URL">Politique d’utilisation des données</a>, y compris notre
-            <a href="URL">Utilisation des cookies</a>. Vous pourrez vous désabonner à tout moment.
-        </h6>
-    </div>
-</body>
-
-</html>
+<?php 
+require_once "Modules/Footer.php"; 
+?>
