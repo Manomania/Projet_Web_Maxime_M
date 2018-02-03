@@ -1,32 +1,27 @@
 <?php
-require_once "Modules/Header.php"; 
+    include('../Modules/bdd.php'); 
+    require_once('../Modules/Header.php');
 ?>
 
 <body>
-    <h1>Klipay</h1>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <h1>Klipay</h1>
 
     <!-- FORMULAIRE CONNEXION -->
     <div class="Menu_id">
-        <form action="Action-Inscription.php" method="post">
+        <form action="Utilisateur.php" method="post">
             <table>
                 <tr>
                     <td>
-                        <label>Adresse e-mail </label>
+                        <label for="Email">Adresse e-mail </label>
                     </td>
                     <td>
-                        <label>Mot de passe </label>
+                        <label for="Mot_de_passe">Mot de passe </label>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" name="Login">
+                        <input type="text" name="pseudo">
                     </td>
                     <td>
                         <input type="password" name="Password">
@@ -105,6 +100,11 @@ require_once "Modules/Header.php";
         </form>
     </div>
 
-<?php 
-require_once "Modules/Footer.php"; 
-?>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+<?php require_once('../Modules/Footer.php'); ?>
