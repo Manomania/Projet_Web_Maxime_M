@@ -1,7 +1,6 @@
 <?php
-
     require_once '../classes/Utilisateur.php';
-
+    session_start();
     /* PERMETTRE LA CONNEXION AU SITE WEB */
     $utilisateur = Utilisateur::getUtilisateurFromLoginPwd($_GET['Email'], $_GET['Password']);
     if($utilisateur){
