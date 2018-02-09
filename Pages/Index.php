@@ -1,6 +1,7 @@
 <?php
     include('../Modules/bdd.php'); 
     require_once('../Modules/Header.php');
+    session_start ();
 ?>
 
 <body>
@@ -9,7 +10,7 @@
 
     <!-- FORMULAIRE CONNEXION -->
     <div class="Menu_id">
-        <form action="Utilisateur.php" method="post">
+        <form action="../Modules/Login.php" method="get">
             <table>
                 <tr>
                     <td>
@@ -21,7 +22,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" name="pseudo">
+                        <input type="text" name="Email">
                     </td>
                     <td>
                         <input type="password" name="Password">
@@ -44,7 +45,7 @@
 
     <!-- Inscription -->
     <div class="Inscription">
-        <form action="Action-Inscription.php" method="post">
+        <form action="../Modules/Inscription.php" method="post">
             <div class="Formulaire">
                 <table>
                     <header>
@@ -78,15 +79,15 @@
                             <input type="number" name="Date" min="0" max="70" value="0">
                         </td>
                         <td>
-                            <input type="radio" name="gender" value="male">
+                            <input type="radio" name="Gender" value="Male">
                             <label>Homme</label>
                         </td>
                         <td>
-                            <input type="radio" name="gender" value="female">
+                            <input type="radio" name="Gender" value="Female">
                             <label>Femme</label>
                         </td>
                         <td>
-                            <input type="radio" name="gender" value="other">
+                            <input type="radio" name="Gender" value="Other">
                             <label>Autre</label>
                         </td>
                     </tr>
@@ -99,12 +100,5 @@
             </div>
         </form>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
 
 <?php require_once('../Modules/Footer.php'); ?>

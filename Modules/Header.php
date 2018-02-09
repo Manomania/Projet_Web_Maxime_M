@@ -7,6 +7,6 @@
         <link rel="stylesheet" href="../style.css" />
         <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
-        <link rel="shortcut icon" href="Images/Favicon.ico" />
+        <link rel="icon" href="../Images/Favicon.ico" />
         <title>Klipay - Accueil</title>
     </head>

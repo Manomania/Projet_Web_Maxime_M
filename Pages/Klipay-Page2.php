@@ -1,4 +1,7 @@
-<?php require_once ('../Modules/Header.php'); ?>
+<?php 
+    require_once ('../Modules/Header.php'); 
+    session_start();
+?>
 
 <body>
 
