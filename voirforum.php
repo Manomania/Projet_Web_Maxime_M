@@ -4,11 +4,10 @@ $titre="Klipay - Forum";
 include("includes/Identifiants.php");
 include("includes/Header.php");
 
-//On récupère la valeur de f
+
 $forum = (int) $_GET['f'];
 
-//A partir d'ici, on va compter le nombre de messages
-//pour n'afficher que les 25 premiers
+
 $query=$db->prepare('SELECT forum_name, forum_topic, auth_view, auth_topic FROM forum_forum WHERE forum_id = :forum');
 $query->bindValue(':forum',$forum,PDO::PARAM_INT);
 $query->execute();
@@ -25,7 +24,6 @@ $nombreDePages = ceil($totalDesMessages / $nombreDeMessagesParPage);
 echo '<p><i>Vous êtes ici</i> : <a href="./index.php">Index du forum</a> --> 
 <a href="./voirforum.php?f='.$forum.'">'.stripslashes(htmlspecialchars($data['forum_name'])).'</a>';
 
-//Nombre de pages
 
 $page = (isset($_GET['page']))?intval($_GET['page']):1;
 
@@ -33,7 +31,7 @@ $page = (isset($_GET['page']))?intval($_GET['page']):1;
 echo '<p>Page : ';
 for ($i = 1 ; $i <= $nombreDePages ; $i++)
 {
-    if ($i == $page) //On ne met pas de lien sur la page actuelle
+    if ($i == $page) 
     {
     echo $i;
     }
@@ -53,13 +51,12 @@ echo '<h2>'.stripslashes(htmlspecialchars($data['forum_name'])).'</h2><br /><br 
 
 if (verif_auth($data['auth_topic']))
 {
-//Et le bouton pour poster
+
 echo'<a href="./poster.php?action=nouveautopic&amp;f='.$forum.'">
 <img src="./images/nouveau.gif" alt="Nouveau topic" title="Poster un nouveau topic"></a>';
 }
 
-//On prend tout ce qu'on a sur les Annonces du forum
-       
+//Recuperation des données du forum       
 
 $query=$db->prepare('SELECT forum_topic.topic_id, topic_titre, topic_createur, topic_vu, topic_post, topic_time, topic_last_post,
 Mb.membre_pseudo AS membre_pseudo_createur, post_createur, post_time, Ma.membre_pseudo AS membre_pseudo_last_posteur, post_id FROM forum_topic 
@@ -71,7 +68,7 @@ ORDER BY topic_last_post DESC');
 $query->bindValue(':forum',$forum,PDO::PARAM_INT);
 $query->execute();
 
-//On lance notre tableau seulement s'il y a des requêtes !
+//On lance notre tableau seulement s'il y a des requêtes 
 if ($query->rowCount()>0)
 {
         ?>
@@ -86,12 +83,9 @@ if ($query->rowCount()>0)
         </tr>   
        
         <?php
-        //On commence la boucle
+
         while ($data=$query->fetch())
         {
-                //Pour chaque topic :
-                //Si le topic est une annonce on l'affiche en haut
-                //mega echo de bourrain pour tout remplir
                
                 echo'<tr><td><img src="./images/annonce.gif" alt="Annonce" /></td>
 
@@ -126,8 +120,6 @@ if ($query->rowCount()>0)
 }
 $query->CloseCursor();
 
-//On prend tout ce qu'on a sur les topics normaux du forum
-
 
 $query=$db->prepare('SELECT forum_topic.topic_id, topic_titre, topic_createur, topic_vu, topic_post, topic_time, topic_last_post,
 Mb.membre_pseudo AS membre_pseudo_createur, post_id, post_createur, post_time, Ma.membre_pseudo AS membre_pseudo_last_posteur FROM forum_topic
@@ -155,11 +147,9 @@ if ($query->rowCount()>0)
         <th class="derniermessage"><strong>Dernier message  </strong></th>
         </tr>
         <?php
-        //On lance la boucle
        
         while ($data = $query->fetch())
         {
-                //Ah bah tiens... re vla l'echo de fou
                 echo'<tr><td><img src="./images/message.gif" alt="Message" /></td>
 
                 <td class="titre">
@@ -192,7 +182,7 @@ if ($query->rowCount()>0)
         </table>
         <?php
 }
-else //S'il n'y a pas de message
+else
 {
         echo'<p>Ce forum ne contient aucun sujet actuellement</p>';
 }

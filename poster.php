@@ -69,10 +69,9 @@ window.document.formulaire.message.value += '' + img + '';
 </script>
 
 <?php
-//Qu'est ce qu'on veut faire ? poster, répondre ou éditer ?
+
 $action = (isset($_GET['action']))?htmlspecialchars($_GET['action']):'';
 
-//Il faut être connecté pour poster !
 if ($id==0) erreur(ERR_IS_CO);
 
 //On récupère certaines valeurs

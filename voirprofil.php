@@ -8,10 +8,8 @@ include("includes/Header.php");
 $action = isset($_GET['action'])?htmlspecialchars($_GET['action']):'consulter';
 $membre = isset($_GET['m'])?(int) $_GET['m']:'';
 
-//On regarde la valeur de la variable $action
 switch($action)
 {
-    //Si c'est "consulter"
     case "consulter":
        //On récupère les infos du membre
        $query=$db->prepare('SELECT membre_pseudo, membre_avatar,
@@ -49,11 +47,9 @@ switch($action)
        $query->CloseCursor();
        break;
 
-       //Si on choisit de modifier son profil
        case "modifier":
-       if (empty($_POST['sent'])) // Si on la variable est vide, on peut considérer qu'on est sur la page de formulaire
+       if (empty($_POST['sent']))
        {
-           //On commence par s'assurer que le membre est connecté
            if ($id==0) erreur(ERR_IS_NOT_CO);
    
            //On prend les infos du membre
@@ -121,42 +117,34 @@ switch($action)
            </p></form>';
            $query->CloseCursor();   
        }   
-       else //Sinon on est dans la page de traitement
+       else
        {
-           //Traitement (voir plus bas)
+        $mdp_erreur = NULL;
+        $email_erreur1 = NULL;
+        $email_erreur2 = NULL;
+        $msn_erreur = NULL;
+        $signature_erreur = NULL;
+        $avatar_erreur = NULL;
+        $avatar_erreur1 = NULL;
+        $avatar_erreur2 = NULL;
+        $avatar_erreur3 = NULL;
+    
+        $i = 0;
+        $temps = time(); 
+        $signature = $_POST['signature'];
+        $email = $_POST['email'];
+        $msn = $_POST['msn'];
+        $website = $_POST['website'];
+        $localisation = $_POST['localisation'];
+        $pass = md5($_POST['password']);
+        $confirm = md5($_POST['confirm']);
        }
        break;
     
-   default; //Si jamais c'est aucun de ceux-là c'est qu'il y a eu un problème :o
+   default;
    echo'<p>Cette action est impossible</p>';
     
-   } //Fin du switch
-
-    else //Cas du traitement
-    {
-     //On déclare les variables 
-
-    $mdp_erreur = NULL;
-    $email_erreur1 = NULL;
-    $email_erreur2 = NULL;
-    $msn_erreur = NULL;
-    $signature_erreur = NULL;
-    $avatar_erreur = NULL;
-    $avatar_erreur1 = NULL;
-    $avatar_erreur2 = NULL;
-    $avatar_erreur3 = NULL;
-
-    //Encore et toujours notre belle variable $i :p
-    $i = 0;
-    $temps = time(); 
-    $signature = $_POST['signature'];
-    $email = $_POST['email'];
-    $msn = $_POST['msn'];
-    $website = $_POST['website'];
-    $localisation = $_POST['localisation'];
-    $pass = md5($_POST['password']);
-    $confirm = md5($_POST['confirm']);
-
+   }
 
     //Vérification du mdp
     if ($pass != $confirm || empty($confirm) || empty($pass))
@@ -166,9 +154,6 @@ switch($action)
     }
 
     //Vérification de l'adresse email
-    //Il faut que l'adresse email n'ait jamais été utilisée (sauf si elle n'a pas été modifiée)
-
-    //On commence donc par récupérer le mail
     $query=$db->prepare('SELECT membre_email FROM forum_membres WHERE membre_id =:id'); 
     $query->bindValue(':id',$id,PDO::PARAM_INT);
     $query->execute();
@@ -194,20 +179,12 @@ switch($action)
             $i++;
         }
     }
-    //Vérification de l’adresse MSN
-    if (!preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $msn) && !empty($msn))
-    {
-        $msn_erreur = "Votre nouvelle adresse MSN n'a pas un format valide";
-        $i++;
-    }
-
     //Vérification de la signature
     if (strlen($signature) > 200)
     {
         $signature_erreur = "Votre nouvelle signature est trop longue";
         $i++;
     }
- 
  
     //Vérification de l'avatar
  
@@ -253,7 +230,7 @@ switch($action)
     echo '<h1>Modification d\'un profil</h1>';
 
  
-    if ($i == 0) // Si $i est vide, il n'y a pas d'erreur
+    if ($i == 0)
     {
         if (!empty($_FILES['avatar']['size']))
         {
@@ -267,7 +244,6 @@ switch($action)
                 $query->CloseCursor();
         }
  
-        //Une nouveauté ici : on peut choisis de supprimer l'avatar
         if (isset($_POST['delete']))
         {
                 $query=$db->prepare('UPDATE forum_membres
@@ -314,13 +290,13 @@ switch($action)
         echo'<p>'.$avatar_erreur3.'</p>';
         echo'<p> Cliquez <a href="./voirprofil.php?action=modifier">ici</a> pour recommencer</p>';
     }
-} //Fin du else
+}
     break;
  
-default; //Si jamais c'est aucun de ceux là c'est qu'il y a eu un problème :o
+default;
 echo'<p>Cette action est impossible</p>';
  
-} //Fin du switch
+}
 
 ?>
    </div>

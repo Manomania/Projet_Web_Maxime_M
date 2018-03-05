@@ -8,8 +8,7 @@ echo '<p><i>Vous êtes ici</i> : <a href="./index.php">Index du forum</a> --> En
 
 if ($id!=0) erreur(ERR_IS_CO);
 
-if (empty($_POST['pseudo'])) // Si on la variable est vide, on peut considérer qu'on est sur la page de formulaire
-{
+if (empty($_POST['pseudo'])) 
     ?>
  <div class="Inscription">
         <form action="../Modules/Inscription.php" method="post">
@@ -87,9 +86,9 @@ if (empty($_POST['pseudo'])) // Si on la variable est vide, on peut considérer 
     <?php
 	
 	
-} //Fin de la partie formulaire
+}
 
-else //On est dans le cas traitement
+else //Traitement
 {
     $pseudo_erreur1 = NULL;
     $pseudo_erreur2 = NULL;

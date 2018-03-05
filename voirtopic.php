@@ -35,11 +35,10 @@ echo '<h3>'.stripslashes(htmlspecialchars($data['topic_titre'])).'</h3><br /><br
 //Nombre de pages
 $page = (isset($_GET['page']))?intval($_GET['page']):1;
 
-//On affiche les pages 1-2-3 etc...
 echo '<p>Page : ';
 for ($i = 1 ; $i <= $nombreDePages ; $i++)
 {
-    if ($i == $page) //On affiche pas la page actuelle en lien
+    if ($i == $page)
     {
     echo $i;
     }
@@ -53,23 +52,20 @@ echo'</p>';
  
 $premierMessageAafficher = ($page - 1) * $nombreDeMessagesParPage;
 
- 
+
 if (verif_auth($data['auth_post']))
 {
-//On affiche l'image répondre
 echo'<a href="./poster.php?action=repondre&amp;t='.$topic.'">
 <img src="./images/repondre.gif" alt="Répondre" title="Répondre à ce topic"></a>';
 }
 
 if (verif_auth($data['auth_topic']))
 {
-//On affiche l'image nouveau topic
 echo'<a href="./poster.php?action=nouveautopic&amp;f='.$data['forum_id'].'">
 <img src="./images/nouveau.gif" alt="Nouveau topic" title="Poster un nouveau topic"></a>';
 }
 
 $query->CloseCursor(); 
-//Enfin on commence la boucle !
 
 $query=$db->prepare('SELECT post_id , post_createur , post_texte , post_time ,
 membre_id, membre_pseudo, membre_inscrit, membre_avatar, membre_localisation, membre_post, membre_signature
@@ -90,8 +86,8 @@ if ($query->rowCount()<1)
 }
 else
 {
-        //Si tout roule on affiche notre tableau puis on remplit avec une boucle
-        ?><table>
+        ?>
+        <table>
         <tr>
         <th class="vt_auteur"><strong>Auteurs</strong></th>             
         <th class="vt_mess"><strong>Messages</strong></th>       
@@ -100,17 +96,9 @@ else
         while ($data = $query->fetch())
         {
 
-            //On commence à afficher le pseudo du créateur du message :
-                     //On vérifie les droits du membre
-                     //(partie du code commentée plus tard)
                      echo'<tr><td><strong>
                      <a href="./voirprofil.php?m='.$data['membre_id'].'&amp;action=consulter">
                      '.stripslashes(htmlspecialchars($data['membre_pseudo'])).'</a></strong></td>';
-                       
-                     /* Si on est l'auteur du message, on affiche des liens pour
-                     Modérer celui-ci.
-                     Les modérateurs pourront aussi le faire, il faudra donc revenir sur
-                     ce code un peu plus tard ! */     
                
                      if ($id == $data['post_createur'])
                      {
@@ -129,7 +117,6 @@ else
                      </td></tr>';
                      }
                    
-                     //Détails sur le membre qui a posté
                      echo'<tr><td>
                      <img src="./images/avatars/'.$data['membre_avatar'].'" alt="" />
                      <br />Membre inscrit le '.date('d/m/Y',$data['membre_inscrit']).'
@@ -148,7 +135,7 @@ else
         echo '<p>Page : ';
         for ($i = 1 ; $i <= $nombreDePages ; $i++)
         {
-                if ($i == $page) //On affiche pas la page actuelle en lien
+                if ($i == $page)
                 {
                 echo $i;
                 }
@@ -160,14 +147,13 @@ else
         }
         echo'</p>';
        
-        //On ajoute 1 au nombre de visites de ce topic
         $query=$db->prepare('UPDATE forum_topic
         SET topic_vu = topic_vu + 1 WHERE topic_id = :topic');
         $query->bindValue(':topic',$topic,PDO::PARAM_INT);
         $query->execute();
         $query->CloseCursor();
 
-} //Fin du if qui vérifiait si le topic contenait au moins un message
+}
 ?>
 <div id="footer">
 <?php
