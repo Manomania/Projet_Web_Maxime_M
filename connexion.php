@@ -19,7 +19,7 @@ else
     else //Verification du mot de passe
     {
         $query=$db->prepare('SELECT membre_mdp, membre_id, membre_rang, membre_pseudo
-        FROM membres WHERE membre_pseudo = :pseudo');
+        FROM forum_membres WHERE membre_pseudo = :pseudo');
         $query->bindValue(':pseudo',$_POST['pseudo'], PDO::PARAM_STR);
         $query->execute();
         $data=$query->fetch();

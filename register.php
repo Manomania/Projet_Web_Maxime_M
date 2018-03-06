@@ -8,10 +8,11 @@ echo '<p><i>Vous êtes ici</i> : <a href="./index.php">Index du forum</a> --> En
 
 if ($id!=0) erreur(ERR_IS_CO);
 
-if (empty($_POST['pseudo'])) 
+if (empty($_POST['pseudo']))
+{
     ?>
  <div class="Inscription">
-        <form action="../Modules/Inscription.php" method="post">
+        <form action="register.php" method="post" enctype="multipart/form-data">
             <div class="Formulaire">
                 <table>
                     <header>
@@ -19,17 +20,32 @@ if (empty($_POST['pseudo']))
                     </header>
                     <tr>
                         <td>
-                        <label for="pseudo">Pseudo :</label>  <input name="pseudo" type="text" id="pseudo" />
+                            <input name="pseudo" type="text" id="pseudo" placeholder="Entrez votre pseudo" />
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <input type="email" name="Email" placeholder="Entrez votre e-mail">
+                            <input type="password" name="password" id="password" placeholder="Entrez votre mot de passe">
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <input type="password" name="Password" placeholder="Entrez votre mot de passe">
+                            <input type="password" name="confirm" id="confirm" placeholder="Confirmez le mot de passe"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="email" name="email" id="email" placeholder="Entrez votre e-mail">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Avatar</label><input type="file" name="avatar" id="avatar"/>
+                        <td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea cols="40" rows="4" name="signature" id="signature" placeholder="Entrez une signature de 200 caractères max"></textarea>
                         </td>
                     </tr>
                 </table>
@@ -37,59 +53,22 @@ if (empty($_POST['pseudo']))
             <div class="FormulaireSuite">
                 <table>
                     <tr>
-                        <td>
-                            <label>Âge</label>
-                            <input type="number" name="Date" min="0" max="70" value="0">
-                        </td>
-                        <td>
-                            <input type="radio" name="Gender" value="Male">
-                            <label>Homme</label>
-                        </td>
-                        <td>
-                            <input type="radio" name="Gender" value="Female">
-                            <label>Femme</label>
-                        </td>
-                        <td>
-                            <input type="radio" name="Gender" value="Other">
-                            <label>Autre</label>
-                        </td>
-                    </tr>
-                    <tr>
                         <td colspan="4">
-                            <button type="submit" name="Signin">Inscription</button>
+                            <button type="submit" Value= "Connexion">Inscription</button>
                         </td>
                     </tr>
                 </table>
             </div>
         </form>
-    </div>
-	<h1>Inscription 1/2</h1>
-	<form method="post" action="register.php" enctype="multipart/form-data">
-	<fieldset><legend>Identifiants</legend>
-	<label for="pseudo">* Pseudo :</label>  <input name="pseudo" type="text" id="pseudo" />
-	<label for="password">* Mot de Passe :</label><input type="password" name="password" id="password" />
-	<label for="confirm">* Confirmer le mot de passe :</label><input type="password" name="confirm" id="confirm" />
-	</fieldset>
-	<fieldset><legend>Contacts</legend>
-	<label for="email">* Votre adresse Mail :</label><input type="text" name="email" id="email" /><br />
-	</fieldset>
-	<fieldset><legend>Profil sur le forum</legend>
-	<label for="avatar">Choisissez votre avatar :</label><input type="file" name="avatar" id="avatar" />(Taille max : 10Ko)<br />
-	<label for="signature">Signature :</label><textarea cols="40" rows="4" name="signature" id="signature">La signature est limit&eacutee a 200 caract&egraveres</textarea>
-	</fieldset>
-	<p>Les champs pr&eacutec&eacuted&eacutes d'un * sont obligatoires</p>
-	<p><input type="submit" value="S'inscrire" /></p></form>
-	</div>
 	</body>
 	</html>
 
     <?php
-	
-	
 }
 
-else //Traitement
+else
 {
+
     $pseudo_erreur1 = NULL;
     $pseudo_erreur2 = NULL;
     $mdp_erreur = NULL;
@@ -109,7 +88,7 @@ else //Traitement
     $email = $_POST['email'];
     $pass = md5($_POST['password']);
     $confirm = md5($_POST['confirm']);
-	
+    
     //Vérification du pseudo
     $query=$db->prepare('SELECT COUNT(*) AS nbr FROM forum_membres WHERE membre_pseudo =:pseudo');
     $query->bindValue(':pseudo',$pseudo, PDO::PARAM_STR);
@@ -212,21 +191,20 @@ $pseudo_free=($query->fetchColumn()==0)?1:0;
         echo'<p>Bienvenue '.stripslashes(htmlspecialchars($_POST['pseudo'])).' vous êtes maintenant inscrit sur le forum</p>
 	<p>Cliquez <a href="./index.php">ici</a> pour revenir à la page d accueil</p>';
 	
-        //La ligne suivante sera commentée plus bas
-	$nomavatar=(!empty($_FILES['avatar']['size']))?move_avatar($_FILES['avatar']):''; 
+	    $nomavatar=(!empty($_FILES['avatar']['size']))?move_avatar($_FILES['avatar']):''; 
    
-        $query=$db->prepare('INSERT INTO forum_membres (membre_pseudo, membre_mdp, membre_email, 
-        membre_siteweb, membre_avatar,membre_signature, membre_inscrit, membre_derniere_visite)
-        VALUES (:pseudo, :pass, :email, :nomavatar, :signature, :temps, :temps)');
-	$query->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
-	$query->bindValue(':pass', $pass, PDO::PARAM_INT);
-	$query->bindValue(':email', $email, PDO::PARAM_STR);
-	$query->bindValue(':nomavatar', $nomavatar, PDO::PARAM_STR);
-	$query->bindValue(':signature', $signature, PDO::PARAM_STR);
-	$query->bindValue(':temps', $temps, PDO::PARAM_INT);
+        $query=$db->prepare('INSERT INTO forum_membres (membre_pseudo, membre_mdp, membre_email,
+        membre_avatar, membre_signature, membre_inscrit, membre_derniere_visite)
+        VALUES (:pseudo , :pass, :email, :nomavatar, :signature, :temps, :temps)');
+        $query->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+        $query->bindValue(':pass', $pass, PDO::PARAM_INT);
+        $query->bindValue(':email', $email, PDO::PARAM_STR);
+        $query->bindValue(':nomavatar', $nomavatar, PDO::PARAM_STR);
+        $query->bindValue(':signature', $signature, PDO::PARAM_STR);
+        $query->bindValue(':temps', $temps, PDO::PARAM_INT);
         $query->execute();
 
-	//Et on définit les variables de sessions
+	//On définit les variables de sessions
         $_SESSION['pseudo'] = $pseudo;
         $_SESSION['id'] = $db->lastInsertId(); ;
         $_SESSION['level'] = 2;
@@ -250,7 +228,9 @@ $pseudo_free=($query->fetchColumn()==0)?1:0;
        
         echo'<p>Cliquez <a href="./register.php">ici</a> pour recommencer</p>';
     }
+
 }
+
 ?>
 
 </div>

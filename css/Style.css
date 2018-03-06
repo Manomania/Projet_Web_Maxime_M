@@ -50,6 +50,14 @@ input {
     padding-right: 100px;
 
 }
+.Inscription {
+    /* Mise en page du cadre (inscription) */
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    height: 500px;
+    text-align: center;
+}
+
 
 .Forums {
     /* A modifier */
@@ -68,23 +76,7 @@ input {
     border-spacing: 100px 5px;
 }
 
-.Inscription {
-    /* Mise en page du cadre (inscription) */
-    padding: 5px 5px 5px 5px;
-    border-radius: 5px;
-    height: 500px;
-    text-align: center;
-}
-
-.total_mess {
-    /* Mise en page du cadre total messages etc */
-    float: right;
-    padding-top: 70px;
-    width: 30%;
-    height: 500px;
-}
-
-.Formulaire input {
+.Formulaire {
     /* Mise en page du tableau (inscription) */
     font-size: 15px;
     border: none;
@@ -113,6 +105,14 @@ input {
     /* Mise en page du bouton inscription */
     background-color: rgb(19, 141, 64);
     color: black;
+}
+
+.total_mess {
+    /* Mise en page du cadre total messages etc */
+    float: right;
+    padding-top: 70px;
+    width: 30%;
+    height: 500px;
 }
 
 #footer {
